@@ -12,6 +12,7 @@
 - Kirjoita menneessä aikamuodossa ja kerro tarkasti, mitä komentoja annoit tai mitä klikkasit. Raportoi kaikki tulokset ja mahdolliset viat ohjelmissa, työkaluissa ja laitteissa.
 - Raportin tulee olla helppolukuinen. Käytä väliotsikoita, kirjoita selkeää kieltä ja viittaa mahdollisiin lähteisiin.
 - Vältä sepittämistä, plagiointia ja kuvien luvatonta käyttöä.
+(Karvinen 2006; Nurminen 2024)
 
 ### Salt Install Guide: Linux (DEB)
 
@@ -134,6 +135,12 @@ Karvinen T 2025. h1 Viisikko. Tero Karvisen verkkosivut. Luettavissa: https://te
 
 Karvinen T 2006. Raportin kirjoittaminen. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/ Luettu 18.01.2024
 
-Kasper Nurminen 2024. Linux Palvelimet - H1 Oma Linux. GitHub. Luettavissa: https://github.com/nurminenkasper/Linux-palvelimet/blob/main/h1-oma-linux.md Luettu 28.3.2025
+Kasper Nurminen 2024. Linux Palvelimet - H1 Oma Linux. GitHub verkkosivut. Luettavissa: https://github.com/nurminenkasper/Linux-palvelimet/blob/main/h1-oma-linux.md Luettu 28.3.2025
 
+VMware, Inc 2025. Salt install guide, Linux (DEB). Salt Project verkkosivut. Luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html Luettu 28.3.2025
 
+Karvinen T 2021. Run Salt Command Locally. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/2021/salt-run-command-locally/ Luettu 28.3.2025
+
+Karvinen T 2018. Salt Quickstart. Taro Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/2018/03/28/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/ Luettu 28.3.2025
+
+Salt Project 2025. SALT.STATES.CMD. Salt Project verkkosivut. Luettavissa: https://docs.saltproject.io/en/3006/ref/states/all/salt.states.cmd.html Luettu 28.3.2025
