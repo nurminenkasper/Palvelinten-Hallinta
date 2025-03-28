@@ -17,5 +17,7 @@
 
 ## Lähteet
 Karvinen T 2025. h1 Viisikko. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 28.03.2025
+
 Karvinen T 2006. Raportin kirjoittaminen. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/ Luettu 18.01.2024
+
 Kasper Nurminen 2024. Linux Palvelimet - H1 Oma Linux. GitHub. Luettavissa: https://github.com/nurminenkasper/Linux-palvelimet/blob/main/h1-oma-linux.md Luettu 28.3.2025
