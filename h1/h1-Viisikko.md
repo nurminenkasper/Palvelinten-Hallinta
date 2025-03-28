@@ -7,7 +7,7 @@
 - G.Skill DDR4 2x16gb 3200MHz CL16
 - 2x SK hynix Platinum P41 2TB PCIe NVMe Gen4
 - Sapphire Radeon RX 7900 XT NITRO+ Vapor-X
-- Windows 11 Home
+- Windows 11 Home 24H2
 
 **Tehtävän aloitusaika 28.3.2025 kello 18:30.**
 
