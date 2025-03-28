@@ -12,6 +12,7 @@
 - Kirjoita menneessä aikamuodossa ja kerro tarkasti, mitä komentoja annoit tai mitä klikkasit. Raportoi kaikki tulokset ja mahdolliset viat ohjelmissa, työkaluissa ja laitteissa.
 - Raportin tulee olla helppolukuinen. Käytä väliotsikoita, kirjoita selkeää kieltä ja viittaa mahdollisiin lähteisiin.
 - Vältä sepittämistä, plagiointia ja kuvien luvatonta käyttöä.
+  
 (Karvinen 2006; Nurminen 2024)
 
 ### Salt Install Guide: Linux (DEB)
