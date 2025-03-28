@@ -1,5 +1,7 @@
 # h1 Viisikko
 
+**Tehtävän aloitusaika 28.3.2025 kello 18:30.**
+
 ## x) Lue ja tiivistä
 
 ### Run Salt Command Locally
@@ -165,6 +167,8 @@ Ja kun suoritetaan jälleen sama komento uudestaan, nähdään saman kaavan tois
 ![K24](24.png)
 
 (Karvinen 2021; VMware 2025)
+
+**Tehtävän lopetusaika 28.3.2025 kello 20:40. Aktiivista työskentelyä yhteensä noin 2 tuntia.**
 
 ## Lähteet
 Karvinen T 2025. h1 Viisikko. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 28.03.2025
