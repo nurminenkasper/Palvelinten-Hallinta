@@ -16,6 +16,8 @@
 ### Salt Install Guide: Linux (DEB)
 
 ## a) Asenna Debian 12-Bookworm virtuaalikoneeseen
+Debian 12 asennettu virtuaalikoneelle. Lisäksi päivitetty kaikki ohjelmat, otettu käyttöön palomuuri ja asennettu Virtualbox Guest Additions. Ei ongelmia asennuksessa.
+![K1](1.png)
 
 ## b) Asenna Salt
 
