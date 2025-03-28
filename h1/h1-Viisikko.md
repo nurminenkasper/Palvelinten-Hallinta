@@ -3,8 +3,23 @@
 ## x) Lue ja tiivistä
 
 ### Run Salt Command Locally
+- Salt-komentoja voidaan suorittaa paikallisesti, jolla nähdään tuloksia heti. Hyödyllistä etenkin harjoitteluun, testaamiseen sekä nopeaan asennukseen.
+- Samat Salt-komennot toimivat niin Linuxissa kuin Windowsissakin.
+- Artikkelissa mainitaan viisi tärkeintä Salt-komentoa
+- pkg, millä hallitaan paketteja
+- file, millä hallitaan tiedostoja
+- service, millä hallitaan palveluja
+- user, millä hallitaan käyttäjiä
+- cmd, millä suoritetaan komentoja
+
+(Karvinen 2021)
 
 ### Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux
+- Artikkelissa käsitellään Salt Master ja Salt Minion käyttöönottoa
+- Master hallitsee Slaven tietokoneita, vaikka ne olisi eri verkossa
+- Slaven avain on hyväksyttävä Masterilla, jotta yhteys toimii
+
+(Karvinen 2018)
 
 ### Raportin kirjoittaminen
 - Raportin tulee olla täsmällinen ja toistettava. Raportissa tulee atkiivisesti kertoa mitä teit ja mitä tapahtui. Raporttia on hyvä kirjoittaa jo työtä tehdessä.
@@ -16,6 +31,12 @@
 (Karvinen 2006; Nurminen 2024)
 
 ### Salt Install Guide: Linux (DEB)
+- Debianille Saltia asentaessa pitää luoda uusi pakettivarasto asentamista varten
+- Asennusta varten pitää luoda keyrings kansio ja hakea sille Saltin julkinen avain
+- Pakettivaraston haettua pitää päivittää pakettilista
+- Tämän jälkeen asennetaan tarvittavat Salt-komponentit, kuten salt-minion tai salt-master
+
+(VMware 2025)
 
 ## a) Asenna Debian 12-Bookworm virtuaalikoneeseen
 Debian 12 asennettu virtuaalikoneeseen. Lisäksi päivitetty kaikki ohjelmat, otettu käyttöön palomuuri ja asennettu Virtualbox Guest Additions. Ei ongelmia asennuksessa.
@@ -43,6 +64,8 @@ Testataan vielä, että Salt-minion asentui onnistuneesti tarkastamalla versiota
 
 ![K6](6.png)
 
+(VMWare 2025)
+
 ## c) Viisi tärkeintä
 
 ### pkg
@@ -58,6 +81,8 @@ Toimii onnistuneesti, seuraavaksi vielä testasin poistaa paketin komennolla **p
 
 ![K9](9.png)
 
+(Karvinen 2021)
+
 ### file
 Saltin File hallitsee tiedostoja. Kokeilin tätä luomalla ja poistamalla tiedostoja. Aluksi loin tyhjän tiedoston nimeltä hellotero komennolla **file.managed**.
 
@@ -70,6 +95,8 @@ Tämän jälkeen loin vielä moitero tiedoston, mihin lisättiin teksti foo ja k
 Lopuksi poistin vielä hellotero tiedoston komennolla **file.absent**.
 
 ![K12](12.png)
+
+(Karvinen 2021)
 
 ### service
 Saltin service komento hallitsee palveluprosesseja (Daemoneja). Testissäni oli apache2 ja aloitetaan käynnistämällä se komennolla **service.running**.
@@ -92,6 +119,8 @@ Lopulta sammutin prosessin **service.dead** komennolla ja testasin, että se tod
 
 ![K17](17.png)
 
+(Karvinen 2021)
+
 ### user
 Saltin user komento hallitsee käyttäjiä, esimerkissä aloitetaan luomalla käyttäjä terote08 komennola **user.present**
 
@@ -105,6 +134,8 @@ Lopuksi poistin käyttäjän terote08 komennolla **user.absent**.
 
 ![K20](20.png)
 
+(Karvinen 2021)
+
 ### cmd
 cmd komento hallitsee komentojen suorittamista ja sitä voidaan käskeä suoriutumaan tietyissä olosuhteissa. Käytännössä **cmd.run** toimii esimerkiksi tapauksissa, missä halutaan ettei toimintoa suoriteta vahingossa useaan kertaan. Kokeilin tätä suorittamalla touch /tmp/foo komennon joka luo tyhjän tiedoston, jos sitä ei ole olemassa.
 
@@ -113,6 +144,8 @@ cmd komento hallitsee komentojen suorittamista ja sitä voidaan käskeä suoriut
 Ja kun ajetaan sama komento uudestaan, tulee ilmoitus, että tiedosto on jo olemassa.
 
 ![K21_1](21_1.png)
+
+(Karvinen 2021; VMware 2025)
 
 ## d) Idempotentti
 Saltin idempotenssi ilmenee suorittaessa samoja komentoja useaan kertaan, millä nähdään ettei ne tee turhia muutoksia, jos annettu komento on jo halutussa tilassa. Havainnoin tätä suorittamalla aluksi **service.running** komennon joka käynnistää apache2 palvelun.
@@ -131,6 +164,8 @@ Ja kun suoritetaan jälleen sama komento uudestaan, nähdään saman kaavan tois
 
 ![K24](24.png)
 
+(Karvinen 2021; VMware 2025)
+
 ## Lähteet
 Karvinen T 2025. h1 Viisikko. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 28.03.2025
 
@@ -144,4 +179,6 @@ Karvinen T 2021. Run Salt Command Locally. Tero Karvisen verkkosivut. Luettaviss
 
 Karvinen T 2018. Salt Quickstart. Taro Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/2018/03/28/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/ Luettu 28.3.2025
 
-Salt Project 2025. SALT.STATES.CMD. Salt Project verkkosivut. Luettavissa: https://docs.saltproject.io/en/3006/ref/states/all/salt.states.cmd.html Luettu 28.3.2025
+VMware, Inc 2025. SALT.STATES.CMD. Salt Project verkkosivut. Luettavissa: https://docs.saltproject.io/en/3006/ref/states/all/salt.states.cmd.html Luettu 28.3.2025
+
+VMware, Inc 2025. Glossary. Salt Project verkkosivut. Luettavissa: https://docs.saltproject.io/en/3006/glossary.html Luettu 28.3.2025
