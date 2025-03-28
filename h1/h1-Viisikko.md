@@ -15,6 +15,14 @@
 
 ### Salt Install Guide: Linux (DEB)
 
+## a) Asenna Debian 12-Bookworm virtuaalikoneeseen
+
+## b) Asenna Salt
+
+## c) Viisi tärkeintä
+
+## d) Idempotentti
+
 ## Lähteet
 Karvinen T 2025. h1 Viisikko. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 28.03.2025
 
