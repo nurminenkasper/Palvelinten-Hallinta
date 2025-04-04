@@ -174,7 +174,7 @@ Loppuun vielä **sudo salt '*' state.single service.dead apache2** komentoa hyö
 ![K37](37.png)
 ![K38](38.png)
 
-**Tehtävän lopetusaika XX.4.2025 kello XXXX. Aktiivista työskentelyä yhteensä noin X tuntia XX minuuttia.**
+**Tehtävän lopetusaika 4.4.2025 kello 23:10. Tauko välillä 16:00-21:00. Aktiivista työskentelyä yhteensä noin 5 tuntia 40 minuuttia.**
 
 ## Lähteet
 Karvinen T 2025. h2 Soitto kotiin. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 4.4.2025
