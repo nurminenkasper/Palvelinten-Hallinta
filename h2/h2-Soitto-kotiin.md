@@ -9,19 +9,36 @@
 - Sapphire Radeon RX 7900 XT NITRO+ Vapor-X
 - Windows 11 Home 24H2
 
-**Tehtävän aloitusaika XX.4.2025 kello XXXX.**
+**Tehtävän aloitusaika 4.4.2025 kello 13:30**
 
 ## x) Lue ja tiivistä
 
 ### Karvinen 2021: Two Machine Virtual Network With Debian 11 Bullseye and Vagrant
+- Artikkelissa ohjeistetaan, miten Vagrantilla asennetaan kaksi virtuaalikonetta nopeasti
+- Vagrantfile konfiguraatio avainasemassa ja artikkeli tarjoaa erinomaisen tiedoston sisällön
+
+(Karvinen 2021)
 
 ### Karvinen 2018: Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux
+- Artikkelissa käsitellään virtuaalikoneiden hallinnointityökalu Saltin asennusta
+- Asennusohjeissa asennetaan yhdelle koneelle Salt-master ja toiselle Salt-minion
+- Lopuksi artikkelissa testataan orjuus-suhteen toimivuutta
+
+(Karvinen 2018)
 
 ### Karvinen 2023: Salt Vagrant - automatically provision one master and two slaves
+Artikkelissa yleisesti käsitellään Salt Vagrant automatisointia ja asennus/käyttöohjeita
 
 #### Infra as Code - Your wishes as a text file
+- Ohjeistuksessa luodaan kansio, mihin laitetaan Saltin määritykset
+- Tekstitiedostoon lisätään ohjeistus/toiminto
+- Saltille annetaan käsky, joka suorittaa tekstitiedoston toiminnon kaikille palvelimille
 
 #### top.sls - What Slave Runs What States
+- top.sls säästää toistamasta samoja komentoja jatkuvasti
+- Salt hoitaa hommat yhdellä kertaa
+
+(Karvinen 2023)
 
 ## a) Hello Vagrant!
 Windowsilla suoritettiin tehtäviä niin hain asennusmedian Vagrantin sivustolta ja kliksuttelin netxiä, kunnes saatiin ohjelma asennettua.
@@ -31,6 +48,8 @@ Windowsilla suoritettiin tehtäviä niin hain asennusmedian Vagrantin sivustolta
 cmd auki ja testiin, mahtoiko asennus onnistua ja onnistuihan se.
 
 ![K2](2.png)
+
+(Vagrant 2025)
 
 ## b) Linux Vagrant
 Windows cmd käyntiin ja uutta Vagrant virtuaalikonetta varten loin uuden kansion ja ajoin sinne sisään **vagrant init debian/bookworm64** komennolla uuden Debian-virtuaalikoneen.
@@ -129,16 +148,43 @@ Se kun toimi niin rupesin hieman googlaamaan ja törmäsin Reddit postaukseen, m
 
 Joko nyt lähtisi avaimen hyväksyntä toimimaan?
 
-[K32](32.png)
+![K32](32.png)
 
 Vihdoin! Testailin vielä muutamalla komennolla, että toimiihan orjan komentaminen.
 
 ![K33](33.png)
 
-## e) Kokeile vähintään kahta tilaa verkon yli
+(VMWare 2025)
 
+## e) Kokeile vähintään kahta tilaa verkon yli
+Viimeistä tehtävää varten aloitin hommat komentamalla orjan töihin, eli käskemällä sitä asentamaan apache2 paketin **sudo salt '*' state.single pkg.installed apache2** komennolla. Tässä hyödynnetään **pkg** osuutta viisikosta.
+
+![K34](34.png)
+
+Varmistus vielä, että demoni on käynnissä **sudo salt '*' state.single service.running apache2** komennolla. Tässä kohdassa hyödynnetään **service** osuutta viisikosta.
+
+![K35](35.png)
+
+curl komentoa orjan ip-osoitteelle, niin nähdään toimiiko apache2 oikeasti.
+
+![K36](36.png)
+
+Loppuun vielä **sudo salt '*' state.single service.dead apache2** komentoa hyödyntäen orjan apache2 sammuttaminen.
+
+![K37](37.png)
+![K38](38.png)
 
 **Tehtävän lopetusaika XX.4.2025 kello XXXX. Aktiivista työskentelyä yhteensä noin X tuntia XX minuuttia.**
 
 ## Lähteet
-Karvinen T 2025. h1 Soitto kotiin. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 3.4.2025
+Karvinen T 2025. h2 Soitto kotiin. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 4.4.2025
+
+Karvinen T 2021. Two Machine Virtual Network With Debian 11 Bullseye and Vagrant. Taro Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/ Luettu 4.4.2025
+
+Karvinen T 2018. Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux. Taro Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux Luettu 4.4.2025
+
+Karvinen T 2023. Salt Vagrant - automatically provision one master and two slaves. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/2023/salt-vagrant/ Luettu 4.4.2025
+
+Vagrant 2025. Install Vagrant. Vagrant verkkosivut. Luettavissa: https://developer.hashicorp.com/vagrant/docs/installation Luettu 4.4.2025
+
+VMWare 2025. Salt Project - Salt Install Guide. Salt Project verkkosivut. Luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html Luettu 4.4.2025
