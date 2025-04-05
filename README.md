@@ -3,7 +3,7 @@ Homework reports for Haaga-Helia Configuration Management Systems course. Report
 
 ## Tehtävä raportit
 - [Viikko 1](h1/h1-Viisikko.md)
-- [Viikko 2]
+- [Viikko 2](h2/h2-Soitto-kotiin.md)
 - [Viikko 3]
 - [Viikko 4]
 - [Viikko 5]
