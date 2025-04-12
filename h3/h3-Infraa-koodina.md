@@ -116,7 +116,29 @@ Tällä kertaa onnistunut ajo! Testasin kuitenkin vielä hyödyntäen cmd.run ko
 ![K12](12.png)
 
 ## c) Tee sls-tiedosto, joka käyttää vähintään kahta eri tilafunktiota. Tarkista eri ohjelmalla, että lopputulos on oikea. Osoita useammalla ajolla, että sls-tiedostosi on idempotentti.
+Tehtävää varten loin edellisten oppien pohjalta uuden sls-tiedoston ja aloin luomaan koodia sinne. Tavoitteeksi otin asentaa ja käynnistää apache2 minionin ja siihen löytyikin ihan hyvät ohjeet suoraan [Salt Projectin sivuilta](https://docs.saltproject.io/salt/user-guide/en/latest/topics/states.html#create-the-apache-state).
 
+        sudo mkdir -p /srv/salt/olleh/
+        cd /srv/salt/olleh/
+        sudoedit .init.sls
+
+![K13](13.png)
+
+Koodiksi lisäilin sisälle apache2-asennuksen sekä apache2-palvelun. Tässä tapauksessa siis hyödynnetään pkg sekä service komentoja. 
+
+        apache2-asennus:
+          pkg.installed:
+            - name: apache2
+
+        apache2-palvelu:
+          service.running:
+            - name: apache2
+            - require:
+              - pkg: apache2-asennus
+
+Koodiin lisäsin siis ihan tyypillisen apache2 asennuksen, mutta lisäsin vielä service komentoon linjan, että pkg on suoritettava ennen service toimintoa, jotta apache2 on varmasti mahdollista käynnistää.
+
+![K14](14.png)
 
 **Tehtävän lopetusaika 12.4.2025 kello XXX.  Aktiivista työskentelyä yhteensä noin XX tuntia XX minuuttia.**
 
