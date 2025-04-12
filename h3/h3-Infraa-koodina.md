@@ -54,7 +54,51 @@ Suoritteessa lukee, että uusi tiedosto on luoto. Tarkastellaan vielä onnistuik
 (Karvinen 2024)
 
 ## b) Aja esimerkki sls-tiedostosi verkon yli orjalla
+Verkon yli ajamista varten oli tarvetta luoda jälleen **master** ja **slave** koneet hyödyntäen [edellisen kerran oppeja](https://github.com/nurminenkasper/Palvelinten-Hallinta/blob/main/h2/h2-Soitto-kotiin.md). Tehtävään sopiva vagrantfile oli jo valmiina, joten käynnistelin suoraan koneet, loin luottamussuhteen Salt asennusta varten, asensin salt-master ja salt-minion versiot, minionille masterin IP-osoite ja lopulta avain hyväksyntään masterin puolella.
 
+        vagrant up
+        vagrant ssh master
+        sudo apt-get update
+        sudo apt-get install curl
+        mkdir -p /etc/apt/keyrings
+        curl -fsSL https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public | sudo tee /etc/apt/keyrings/salt-archive-keyring.pgp
+        curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources | sudo tee /etc/apt/sources.list.d/salt.sources
+        sudo apt-get update
+        sudo apt-get install salt-master
+        exit
+        vagrant ssh minion
+        sudo apt-get update
+        sudo apt-get install curl
+        mkdir -p /etc/apt/keyrings
+        curl -fsSL https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public | sudo tee /etc/apt/keyrings/salt-archive-keyring.pgp
+        curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.sources | sudo tee /etc/apt/sources.list.d/salt.sources
+        sudo apt-get update
+        sudo apt-get install salt-minion
+        sudoedit /etc/salt/minion
+        master: 192.168.88.101
+        id: kasperslave
+        sudo systemctl restart salt-minion.service
+        exit
+        vagrant ssh master
+        sudo systemctl start salt-master.service
+        sudo salt-key -A
+
+![K5](5.png)
+![K6](6.png)
+
+Luodaan jälleen init.sls tiedosto, mihin koodi kirjoitetaan samalla tavalla kuin tehtävässä a)
+
+        sudo mkdir -p /srv/salt/hello/
+        cd /srv/salt/hello/
+        sudoedit init.sls
+        
+        /tmp/hellokasper:
+          file.managed
+
+![K7](7.png)
+![K8](8.png)
+
+Tällä kertaa kuitenkin tarkoituksena ajaa komento 
 
 ## c) Tee sls-tiedosto, joka käyttää vähintään kahta eri tilafunktiota. Tarkista eri ohjelmalla, että lopputulos on oikea. Osoita useammalla ajolla, että sls-tiedostosi on idempotentti.
 
