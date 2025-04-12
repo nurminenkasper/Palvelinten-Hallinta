@@ -98,12 +98,27 @@ Luodaan jälleen init.sls tiedosto, mihin koodi kirjoitetaan samalla tavalla kui
 ![K7](7.png)
 ![K8](8.png)
 
-Tällä kertaa kuitenkin tarkoituksena ajaa komento 
+Tällä kertaa kuitenkin tarkoituksena ajaa komento slave koneella, joten hyödynnetään '*' kohdentamaan kaikki minionit, eli tässä tapauksessa yksi pystyssä oleva kasperslave.
+
+        sudo salt '*' state.apply hello
+
+![K9](9.png)
+
+Ensimmäinen yritys reisille, koska annetussa koodissa on virhe. Tarkemmalla tarkastelulla oli päässyt lipsahtamaan ylimääräinen välilyönti, joten korjataan se ja ajetaan uudestaan.
+
+![K10](10.png)
+![K11](11.png)
+
+Tällä kertaa onnistunut ajo! Testasin kuitenkin vielä hyödyntäen cmd.run komentoa, että oliko lopputulos onnistunut.
+
+        sudo salt '*' cmd.run 'ls /tmp/hellokasper'
+
+![K12](12.png)
 
 ## c) Tee sls-tiedosto, joka käyttää vähintään kahta eri tilafunktiota. Tarkista eri ohjelmalla, että lopputulos on oikea. Osoita useammalla ajolla, että sls-tiedostosi on idempotentti.
 
 
-**Tehtävän lopetusaika 4.4.2025 kello 23:10. Tauko välillä 16:00-21:00. Aktiivista työskentelyä yhteensä noin 5 tuntia 40 minuuttia.**
+**Tehtävän lopetusaika 12.4.2025 kello XXX.  Aktiivista työskentelyä yhteensä noin XX tuntia XX minuuttia.**
 
 ## Lähteet
 Karvinen T 2025. h3 Infraa koodina. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 12.4.2025
