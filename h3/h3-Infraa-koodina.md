@@ -188,7 +188,7 @@ Siltähän se näyttää. Ajo tapahtuu uudestaan, mutta ajo ei aiheuttanut mitä
 
 (Salt Project 2025; Karvinen 2018, 2024, 2025)
 
-**Tehtävän lopetusaika 12.4.2025 kello 10:55.  Aktiivista työskentelyä yhteensä noin 2 tuntia 10 minuuttia.**
+**Tehtävän lopetusaika 12.4.2025 kello 11:05. Aktiivista työskentelyä yhteensä noin 2 tuntia 25 minuuttia.**
 
 ## Lähteet
 Karvinen T 2025. h3 Infraa koodina. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 12.4.2025
