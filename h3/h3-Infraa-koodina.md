@@ -13,16 +13,32 @@
 
 ## x) Lue ja tiivistä
 
-### Karvinen 2014: Hello Salt Infra-as-Code
+### Karvinen 2024: Hello Salt Infra-as-Code
+- Artikkelissa käydään läpi Salt Infra-as-Code, eli suoritetaan komentoja valmiin tiedoston kautta
+- /srv/salt on minionien kanssa jettu kansio, mihin lisätään ajettava infrakoodi
+- init.sls sisältää projektin koodin ja sitä voidaan ajaa state.apply komennolla niin lokaalisti kuin minioneillakin
 
+(Karvinen 2024)
 ### Salt contributors: Salt overview
 
 #### Rules of YAML
+- YAMLia käytetään usein Salt tiedostojen renderöinnissä
+- Data muodostetaan pareissa, esim muodossa avain: arvo
+- Kirjainkoolla on merkitystä tekstissä
+- Tabulaattori ei toimi YAML koodissa, vaan on käytettävä välilyöntejä
 
 #### YAML simple structure
+- YAMLilla on kolme tyypillistä peruselementtiä
+- Scalar, avain:arvo pari, missä voi olla numeroita, merkkijonoja tai boolean arvoja
+- List, avain: jonka jälkeen voi olla arvoja ja ne voidaan erotella riveillä/väliviivalla
+- Dictionary, avain: arvo kokoelma
 
 #### Lists and dictionaries - YAML block structures
+- YAML on organisoitu lohkoiksi rakenteeltaan
+- Sisennyksellä määrätään asian yhteys
+- Kokoelma joka on list tai dictionary, jokainen rivi muodostetaan välillä tai viivalla
 
+(Salt Project 2025)
 ## a) Hei infrakoodi!
 Testasin infraa koodina virtuaalikoneella, jossa oli valmiiksi jo salt-minion asennettuna. Homma alkuun luomalla hello kansion, suuntaamalla sinne ja luomalla sinne init.sls tiedoston mihin itse infrakoodi kirjoitetaan.
 
@@ -115,6 +131,8 @@ Tällä kertaa onnistunut ajo! Testasin kuitenkin vielä hyödyntäen cmd.run ko
 
 ![K12](12.png)
 
+(Salt Project 2025; Karvinen 2018, 2024, 2025; Nurminen 2025)
+
 ## c) Tee sls-tiedosto, joka käyttää vähintään kahta eri tilafunktiota. Tarkista eri ohjelmalla, että lopputulos on oikea. Osoita useammalla ajolla, että sls-tiedostosi on idempotentti.
 Tehtävää varten loin edellisten oppien pohjalta uuden sls-tiedoston ja aloin luomaan koodia sinne. Tavoitteeksi otin asentaa ja käynnistää apache2 minionin ja siihen löytyikin ihan hyvät ohjeet suoraan [Salt Projectin sivuilta](https://docs.saltproject.io/salt/user-guide/en/latest/topics/states.html#create-the-apache-state).
 
@@ -140,7 +158,51 @@ Koodiin lisäsin siis ihan tyypillisen apache2 asennuksen, mutta lisäsin vielä
 
 ![K14](14.png)
 
-**Tehtävän lopetusaika 12.4.2025 kello XXX.  Aktiivista työskentelyä yhteensä noin XX tuntia XX minuuttia.**
+Ajellaan seuraavaksi komento.
+
+        sudo salt '*' state.apply olleh
+
+![K14.5](14.5.png)
+
+Oho, mikäs virhe tämä on? Piti hetken aikaa pyöritellä googlea vastausta löytämättä, mutta lopulta päädyin kysymään Gemini 2.0 tekoälyltä joka osasi sanoa heti, että tiedoston nimeksi oli ajatuksissa päätynyt **.**init.sls eikä init.sls, joten muutetaan se oikeaan muotoon.
+
+        sudo mv .init.sls init.sls
+
+![K15](15.png)
+
+Tämän jälkeen uusi ajo komennolle.
+
+![K16](16.png)
+
+Tällä kertaa täysin onnistunut suoritus! Tarkastellaan vielä, että asentuiko ja käynnistyikö apache2 hyödyntäen cmd.run komentoa.
+
+        sudo salt '*' cmd.run 'curl localhost |grep title'
+
+![K17](17.png)
+
+Kasperslave ilmoitteleepi, että Apache2 pyörii ongelmitta! Testataan vielä, että onhan luomani sls-tiedosto varmasti idempotentti ajamalla se uudestaan kahteen kertaan.
+
+![K18](18.png)
+
+Siltähän se näyttää. Ajo tapahtuu uudestaan, mutta ajo ei aiheuttanut mitään muutoksia järjestelmään.
+
+(Salt Project 2025; Karvinen 2018, 2024, 2025)
+
+**Tehtävän lopetusaika 12.4.2025 kello 10:55.  Aktiivista työskentelyä yhteensä noin 2 tuntia 10 minuuttia.**
 
 ## Lähteet
 Karvinen T 2025. h3 Infraa koodina. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 12.4.2025
+
+Karvinen T 2024. Hello Salt Infra-as-Code. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/2024/hello-salt-infra-as-code/ Luettu 12.4.2025
+
+Salt Project 2025. Rules of YAML. Luettavissa: https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml Luettu 12.4.2025
+
+Nurminen K 2025. GitHub. Luettavissa: https://github.com/nurminenkasper/Palvelinten-Hallinta/blob/main/h2/h2-Soitto-kotiin.md Luettu 12.4.2025
+
+Salt Project 2025. Salt Install Guide. Luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/linux-deb.html Luettu 12.4.2025
+
+Salt Project 2025. Salt User Guide - Create the Apache state. Luettavissa: https://docs.saltproject.io/salt/user-guide/en/latest/topics/states.html#create-the-apache-state Luettu 12.4.2025
+
+Salt Project 2025. Salt User Guide - Requisite declarations. Luettavissa: https://docs.saltproject.io/salt/user-guide/en/latest/topics/requisites.html Luettu 12.4.2025
+
+Karvinen T 2018. Salt Quickstart. Luettavissa: https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/ Luettu 12.4.2025
