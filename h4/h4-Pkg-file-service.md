@@ -238,10 +238,23 @@ Toimii! Huh, olipas työmaa...
 
 ![K46](46.png)
 
+Ajattelin testata vielä netcatilla, miltä syöte näyttää, koska ainakin Teron ohjeissa sekin pitäisi toimia testiksi.
 
+![K47](47.png)
 
-**Tehtävän lopetusaika 19.4.2025 kello XXXX. Aktiivista työskentelyä yhteensä noin X tuntia XX minuuttia.**
+Tämä näyttää kyllä jotenkin erilaiselta tulokselta, mitä ohjeissa oli, mutta kirjautuminen toimii niin oletan tehtävän olevan suoritettu.
+
+(Karvinen 2025; Karvinen 2018; Hashicorp 2025)
+
+**Tehtävän lopetusaika 19.4.2025 kello 20:15. Aktiivista työskentelyä yhteensä noin 4 tuntia 45 minuuttia.**
 
 ## Lähteet
 Karvinen T 2025. h3 Infraa koodina. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/#h4-pkg-file-service Luettu 19.4.2025
+
+Karvinen T 2018. Pkg-File-Service – Control Daemons with Salt – Change SSH Server Port. Luettavissa: https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh Luettu 19.4.2025
+
+Nurminen 2025. h3 Infraa Koodina. GitHub. Luettavissa: https://github.com/nurminenkasper/Palvelinten-Hallinta/blob/main/h3/h3-Infraa-koodina.md Luettu 19.4.2025
+
+Hashicorp 2025. Creating a Base Box. Luettavissa: https://developer.hashicorp.com/vagrant/docs/boxes/base Luettu 19.4.2025
+
 
