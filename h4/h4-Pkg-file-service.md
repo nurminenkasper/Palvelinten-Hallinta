@@ -14,7 +14,11 @@
 ## x) Lue ja tiivistä
 
 ### Karvinen 2018: Pkg-File-Service – Control Daemons with Salt – Change SSH Server Port
+- Artikkelissa käydään läpi, miten pkg-file-service yhtälö toimii demonien hallinnassa
+- Keskitytään erityisesti SSH hallintaan
+- Artikkeli sisältää yksityiskohtaiset ohjeet, miten ssh saadaan toimimaan porttiin 8888 Saltin yli
 
+(Karvinen 2018)
 ## a) Apache easy mode.
 Tavoitteena on asentaa Apache2, ensin käsin ja sen jälkeen automaattisesti Salt hyödyntäen. Tätä varten luonnollisesti tarvitaan alusta millä suorittaa, niin käynnistelin jo edellisissä tehtävissä käytettyjä Vagrant master & slave koneita.
 
