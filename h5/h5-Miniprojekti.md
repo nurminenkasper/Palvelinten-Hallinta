@@ -15,6 +15,8 @@
 
 ## b) Etusivu
 
+**Tehtävän lopetusaika 1.5.2025 kello XX:XX. Aktiivista työskentelyä yhteensä noin X tuntia XX minuuttia.**
+
 ## Lähteet
 https://terokarvinen.com/palvelinten-hallinta/
 
@@ -27,5 +29,3 @@ https://github.com/nurminenkasper/Palvelinten-Hallinta/blob/main/h2/h2-Soitto-ko
 https://docs.saltproject.io/salt/user-guide/en/latest/topics/salt-ssh.html
 
 https://docs.saltproject.io/en/3006/ref/states/all/salt.states.archive.html
-
-Gemini
