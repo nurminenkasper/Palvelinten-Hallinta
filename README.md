@@ -6,6 +6,5 @@ Homework reports for Haaga-Helia Configuration Management Systems course. Report
 - [Viikko 2](h2/h2-Soitto-kotiin.md)
 - [Viikko 3](h3/h3-Infraa-koodina.md)
 - [Viikko 4](h4/h4-Pkg-file-service.md)
-- [Viikko 5]
-- [Viikko 6]
-- [Viikko 7]
+- [Viikko 5](h5/h5-Miniprojekti.md)
+- [Miniprojekti](https://github.com/nurminenkasper/netris-salt-vagrant-module)
