@@ -24,6 +24,8 @@ https://github.com/warmchang/netris
 
 https://netris.rocket9labs.com/download/0.1.9/netris_0.1.9_linux_amd64.tar.gz
 
+https://terokarvinen.com/2024/hello-salt-infra-as-code/
+
 https://github.com/nurminenkasper/Palvelinten-Hallinta/blob/main/h2/h2-Soitto-kotiin.md
 
 https://docs.saltproject.io/salt/user-guide/en/latest/topics/salt-ssh.html
