@@ -298,6 +298,8 @@ Ja kun tarkastellaan onko serveri käynnistynyt, nähdään sen olevan pystyssä
 
 ![S17](slave/17.png)
 
+Pyörittelin vielä tämän osuuden muutamaan kertaan, että homma toimii varmasti ja ainakin itse sain joka kerta pelittämään. Ei muuta kuin Tetrikset käyntiin kaverien kanssa!
+
 **Tehtävän lopetusaika 1.5.2025 kello XX:XX. Aktiivista työskentelyä yhteensä noin X tuntia XX minuuttia.**
 
 ## Lähteet
