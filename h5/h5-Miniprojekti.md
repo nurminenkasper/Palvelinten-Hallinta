@@ -124,7 +124,79 @@ Ja nyt kun ajetaan vielä uudestaan, pitäisi olla onnistunut lopputulos lataami
 
 ![S6](slave/6.png)
 
+Hienoa, toimii. Tähän asti olinkin aika hyvin kartalla, miten lähestyä suorittamista. Ohjelman suorittaminen olikin sitten ihan toinen asia, selvää oli itselle se, että cmd.run käyttämällä saadaan ohjelma pyörähtämään käyntiin, mutta epäselvää oli se miten sitä edeltävä ssh-keygen saataisiin taklattua. Kysyin apua herra tekoälyltä, tässä tapauksessa Gemini 2.5. Syötteeksi Geminille annoin seuraavat työkalut:
 
+- Tiedot projektistani tähän mennessä.
+- Komennot, miten lokaalisti saadaan käyntiin eli ssh-keygen ja sen jälkeen ./netris-server...
+- Tavoite siitä, mitä projektin pitäisi tehdä
+
+Tekoälyltä palautteena saatiin setti, missä:
+- **file.directory** varmastaa, että .ssh hakemisto on olemassa
+- **cmd.run** suorittaa ssh-keygen komennon
+- **cmd.run** laittaa serverin pystyyn ./netris-server... komennolla
+
+![S7](slave/7_1.png)
+
+Ja kun ajetaan kokonaisuutta:
+
+![S8](slave/8.png)
+
+Pääosin toimiva setti. Ongelmaksi tässä kuitenkin osoittautui cmd.run, minkä pitäisi suorittaa ./netris-server komento. Jumppasin tätä tunteja, ilman tekoälyä ja tekoälyn kanssa. Mitä enemmän jumppasin, sitä enemmän solmuun tilanne meni. Viimeisimmässä vedoksessa lopputilanne oli tämä:
+
+![S9](slave/9.png)
+
+state.apply jäi jumiin suorittamaan/roikkumaan niin pitkäksi aikaa, että se piti cancelaa ctrl-c komennolla ja minion meni täysin solmuun. Lopulta Geminikin tuntui luovuttavan ja kiersi vastauksissa ympyrää, mutta tarjoten kuitenkin viimeisen suosituksen:
+
+Gemini 2.5: "Vahva suositus: Suosittelen systemd-lähestymistapaa. Se on oikea työkalu tähän tarkoitukseen Saltilla, ja se ratkaisee tämän roikkumisongelman."
+
+Itsehän luonnollisesti kysyin ensimmäisenä, että mikä ihmeen systemd-lähestymistapa? Kyllä se jossain vastauksissa tuli jo aikaisemmin ehdotuksena, mutta näytti asialta mitä kurssin aikana ei oltu opittu niin sivuutin aikasemmin. Mitään muita vaihtoehtoja ei kuitenkaan enää ollut, kuin lähteä kokeilemaan. Tässä alla Geminin ohjeistuksella, mitä asia tarkoittaa:
+
+`sudo mkdir -p /srv/salt/netris/files` luodaan hekmisto ja sinne sisään **netris-server.service** tiedosto, joka toimii systemd-palvelumääritystiedostona, joka kopioidaan minionille käyttöön. Tiedostoon sisään laitettiin seuraavat asiat:
+
+```
+[Unit]
+Description=Netris Server
+After=network.target
+
+[Service]
+User=vagrant
+WorkingDirectory=/home/vagrant/
+ExecStart=/home/vagrant/netris-server -listen-tcp 192.168.88.102:2223 -listen-ssh 192.168.88.102:2222 -netris /home/vagrant/netris
+Restart=on-failure
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=netris-server
+
+[Install]
+WantedBy=multi-user.target
+```
+Tässä pystytetään service, mistä löytyy Netris-Serveriin tarvittavat tiedot ja käynnistysargumentit.
+
+![S10](slave/10.png)
+
+Seuraavaksi lähdettiin muokkaamaan alkuperäistä Netris init.sls tiedostoa vastaamaan uutta systemd-lähestymistapaa.
+
+![S11](slave/11.png)
+
+Alkuperäiset lataamiseen ja purkamiseen liittyvät asiat pysyivät samana. Myös ssh generoidaan edelleen cmd.run hyödyntäen. Tämän lisäksi tuli uusia asioita kuten:
+- id_rsa **file.managed:** varmistaa id_rsa -tiedoston oikean omistajuuden ja oikeudet
+- id_rsa.pub **file.managed:** varmistaa id_rsa.pub -tiedoston oikean omistajuuden ja oikeudet
+- netris-server.service **file.managed:** Tila systemd-palvelutiedostojen luomiseksi minionille
+- run netris server service **service.running:** Tila netris server -palvelun hallitsemiseksi systemd tavalla
+
+Eksoottista ja itselle ainakin melko monimutkainen paketti, mutta mitään hävittävää ei enää selvittelyjen jälkeen ollut. Ajetaanpa tila orjalle ja katsotaan miten käy. 
+
+![S12](slave/12.png)
+
+Hei! Kaikki onnistuneesti. Toimiiko idempotentti? Ajetaan uudestaan vielä.
+
+![S13](slave/13.png)
+
+Tarkastellaanpa vielä, onko serveri todella käynnissä. Käytännössä suoraan host koneen cmd kautta pitäisi ssh yhteydellä päästä pelaamaan `ssh vagrant@192.168.88.102 -p 2222` komennolla. 
+
+![S14](slave/14.png)
+
+Hommahan toimii ja systemctl komennolla nähdään, miten serveri on pystyssä ja antaa dataa yhdistäneistä pelaajista!
 
 ## b) Etusivu
 
