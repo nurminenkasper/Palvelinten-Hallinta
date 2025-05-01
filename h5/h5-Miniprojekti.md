@@ -64,9 +64,41 @@ end
 ![L1](local/1.png)
 ![L2](local/2.png)
 
+Netris tarjoaa suorat Linux binäärit ladattavana sivuiltaan, joten haetaan ja puretaan ne käyttöön wget & tar komennoilla.
 
+![L3](local/3.png)
+
+Puretusta sisällöstä löytyy markdown tiedostojen lisäksi kaksi suoritettavaa ohjelmistoa. Netris ja Netris-Server. Näistä enemmän kiinnostuneita olemme netris-serveristä, koska tavoitteena on pystyttää Netris-Server SSH yli toimivaksi ja sen jälkeen pelata sitä. Itse pelaamiseen käyttäjä ei tarvitse muuta kuin SSH yhteyden serverille. 
+
+![L4](local/4.png)
+
+`./netris-server --help` antaa tarpeellista tietoa siitä, miten itse serveri saadaan käyntiin. 
+
+![L5](local/5.png)
+
+Itse tiesin jo entuudestaan, että suorittamiseen vaaditaan TCP ja SSH molemmat. CONFIGURATION.md puolestaan mainitsi vielä sen, että perään kannattaa lisätä -netris + polku ohjelmaan.
+
+`./netris-server -listen-tcp 192.168.88.101:2223 -listen-ssh 192.168.88.101:2222 -netris ./netris` serveri käyntiin.
+
+![L6](local/6.png)
+
+Host keytä ei tosissaan löytynyt, joten generoidaan vielä se ennen suorittamista.
+
+![L7](local/7.png)
+
+Homma käyntiin uudestaan onnistuneesti ja avasin toiseen terminaaliin Slave koneen, mistä muodostin onnistuneen SSH yhteyden Masterille, missä nyt tällä kertaa Serveri pyöri.
+
+![L8](local/8.png)
+![L9](local/9.png)
+
+Peli olisi vaatinut vielä toisen yhteydenottajan, testasinkin sitä lopulta ihan oman host koneen CMD kautta, mutta kuva unohtui ottaa väliin sekaan. Master koneen syötteestä nähdään kuitenkin se, että serveri on pystyssä ja pelaaja vagrant liittyi serverin peliin.
+
+![L10](10.png)
+
+Seuraavaksi edessä oli selvitellä, miten homma saataisiin pyöritettyä ympäri niin, että Master ajaa Saltin yli Slavelle serverin pystyyn.
 
 ## b) Etusivu
+
 
 **Tehtävän lopetusaika 1.5.2025 kello XX:XX. Aktiivista työskentelyä yhteensä noin X tuntia XX minuuttia.**
 
