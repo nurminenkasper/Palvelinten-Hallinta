@@ -141,7 +141,7 @@ Ja kun ajetaan kokonaisuutta:
 
 ![S8](slave/8.png)
 
-Pääosin toimiva setti. Ongelmaksi tässä kuitenkin osoittautui cmd.run, minkä pitäisi suorittaa ./netris-server komento. Jumppasin tätä tunteja, ilman tekoälyä ja tekoälyn kanssa. Mitä enemmän jumppasin, sitä enemmän solmuun tilanne meni. Viimeisimmässä vedoksessa lopputilanne oli tämä:
+Pääosin toimiva setti. Ongelmaksi tässä kuitenkin osoittautui cmd.run, minkä pitäisi suorittaa ./netris-server komento. Jumppasin tätä tunteja, ilman tekoälyä ja tekoälyn kanssa. Mitä enemmän jumppasin, sitä enemmän solmuun tilanne meni. Pääosin tekoälylle viestittelin erilaisia virhekomentoja samalla kun googlailin niitä tuloksetta. Viimeisimmässä vedoksessa lopputilanne oli tämä:
 
 ![S9](slave/9.png)
 
@@ -302,7 +302,7 @@ Pyörittelin vielä tämän osuuden muutamaan kertaan, että homma toimii varmas
 
 Tarpeellinen ohjelmiston toiminnan kannalta? Eipä juuri, mutta ihan mielenkiintoinen projekti oli. Ei muuta kuin Tetrikset käyntiin kaverien kanssa!
 
-**Tehtävän lopetusaika 1.5.2025 kello XX:XX. Aktiivista työskentelyä yhteensä noin X tuntia XX minuuttia.**
+**Tehtävän lopetusaika 1.5.2025 kello 21:00. Aktiivista työskentelyä yhteensä noin 10 tuntia 00 minuuttia.**
 
 ## Lähteet
 Karvinen T 2025. h5 Miniprojekti. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 29.4.2025
