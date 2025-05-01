@@ -51,9 +51,6 @@ Vagrant.configure("2") do |config|
       master.vm.hostname = "master"
       master.vm.network "private_network", ip: "192.168.88.101"
       master.vm.provision "shell", inline: $master_script
-
-      master.vm.synced_folder "salt/", "/srv/salt"
-      master.vm.synced_folder "pillar/", "/srv/pillar"
    end
 
    config.vm.define "slave", primary: true do |slave|
