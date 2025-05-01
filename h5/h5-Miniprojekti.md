@@ -276,7 +276,27 @@ Toimii! Tarkastellaanpa vielä, onko serveri todella käynnissä. Käytännöss�
 Hommahan toimii ja systemctl komennolla nähdään, miten serveri on pystyssä ja antaa dataa yhdistäneistä pelaajista!
 
 ## b) Etusivu
+Loin uuden GitHub Repositorion [netris-salt-vagrant-module](https://github.com/nurminenkasper/netris-salt-vagrant-module) mihin vein projektiin liittyvät tiedot ja tein ohjeet, miten käyttö toimii. Alkuperäiseen tehtävässä käytettyyn Vagrantfile tiedostoon tein vielä yhden muutoksen, jotta kun repositorion kloonaa ja ajaa Vagrantilla saa myös mukana tulevat salt kansiot käyttöön. Vagrantfilessä "master" koneen alle seuraava linja:
 
+      master.vm.synced_folder "salt/", "/srv/salt", owner: "root", group: "root"
+
+Nyt kun testataan vielä käytännössä, pystyykö ulkopuolinen suorittamaan ohjelman toimivaksi. Aloitin kloonaamalla luodun repositorion koneelleni `git clone https://github.com/nurminenkasper/netris-salt-vagrant-module.git` komennolla ja tämän jälkeen valitsin `cd` komennolla kansion, mistä löytyy kaikki oleellinen suorittamista varten.
+
+![S18](slave/18.png)
+
+Ja kun kansiossa ajetaan komennolla `vagrant up` koneet käyntiin ja kirjaudutaan masterille `vagrant ssh master` komennolla niin päästään hommiin. Pitää toki vielä ensin hyväksyä orjan avain käyttöön `sudo salt-key -A` komennolla. Kuvassa vielä tarkistin `ls -l /srv/` komennolla, että kopioituihan tarvittavat tiedostot mukana Vagrant koneelle.
+
+Lopulta vain kovaa ajoa `sudo salt '*' state.apply netris` komennolla.
+
+![S15](slave/15.png)
+
+Ja hommahan suoriutui syötteen perusteella viidessä sekunnissa onnistuneesti.
+
+![S16](slave/16.png)
+
+Ja kun tarkastellaan onko serveri käynnistynyt, nähdään sen olevan pystyssä onnistuneesti.
+
+![S17](slave/17.png)
 
 **Tehtävän lopetusaika 1.5.2025 kello XX:XX. Aktiivista työskentelyä yhteensä noin X tuntia XX minuuttia.**
 
