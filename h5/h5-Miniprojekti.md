@@ -269,7 +269,7 @@ Hei! Kaikki onnistuneesti. Toimiiko idempotentti? Ajetaan uudestaan vielä.
 
 ![S13](slave/13.png)
 
-Tarkastellaanpa vielä, onko serveri todella käynnissä. Käytännössä suoraan host koneen cmd kautta pitäisi ssh yhteydellä päästä pelaamaan `ssh vagrant@192.168.88.102 -p 2222` komennolla. 
+Toimii! Tarkastellaanpa vielä, onko serveri todella käynnissä. Käytännössä suoraan host koneen cmd kautta pitäisi ssh yhteydellä päästä pelaamaan `ssh vagrant@192.168.88.102 -p 2222` komennolla. 
 
 ![S14](slave/14.png)
 
