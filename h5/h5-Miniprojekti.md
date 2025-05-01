@@ -95,7 +95,36 @@ Peli olisi vaatinut vielä toisen yhteydenottajan, testasinkin sitä lopulta iha
 
 ![L10](local/10.png)
 
-Seuraavaksi edessä oli selvitellä, miten homma saataisiin pyöritettyä ympäri niin, että Master ajaa Saltin yli Slavelle serverin pystyyn. Puhdistin tätä varten Vagrant masiinat ja lähdin toteuttamaan projektia puhtaalta pöydältä. Koneet nostin pystyyn ylempänä kuvatulla tavalla, joten niitä turha toistaa tähän.
+Seuraavaksi edessä oli selvitellä, miten homma saataisiin pyöritettyä ympäri niin, että Master ajaa Saltin yli Slavelle serverin pystyyn. Puhdistin tätä varten Vagrant masiinat ja lähdin toteuttamaan projektia puhtaalta pöydältä. Koneet nostin pystyyn ylempänä kuvatulla tavalla, joten niitä turha toistaa tähän. Lähdin rakentamaan kokonaisuutta master koneella infraa koodina tyyppisesti:
+
+      sudo mkdir -p /srv/salt/netris
+      sudoedit /srv/salt/netris/init.sls
+
+init.sls tiedostoon lähdin rakentamaan asiaa kahdessa osassa. Aluksi halusin saada toimimaan sen, että minion hakee latauslinkistä tar tiedoston jonka jälkeen se purkaa sen käyttöön. Ensimmäisessä vedoksessa hyödynnettiin file.managed tilaa lataamaan itse tiedosto ja sen jälkeen archive.extracted purkamaan se.
+
+![S1](slave/1.png)
+
+Tämän sisällön jälkeen lähdin ajamaan pakettia `sudo salt '*' state.apply netris` komennolla. Käytin '*' ihan tietoisesti, koska vain yksi orjakone oli pystyssä.
+
+![S2](slave/2.png)
+
+Virhettä pukkaa, mutta virheissä oli aika selkeät kommentit mitä tehdä. Lähdin pilkkomaan korjaamista kahteen osaan, ettei sekoteta enempää pakkaa. Valitsin file.managed korjaamiselle skip_verify vaihtoehdon ja kävin lisäämässä sen init.sls tiedostoon.
+
+![S3](slave/3.png)
+
+Ja kun suoritellaan taas ohjelmistoa.
+
+![S4](slave/4.png)
+
+Tila onnistunut, hienoa. Korjataan seuraavaksi archive.extracted tilan virhe, kuten söytteestäkin näkee niin enforce_toplevel pitäisi korjata virhe. Hieman lueskelin tarkemmin vielä mitä funktiota sillä on, niin enforce_toplevel=false sallii arkistojen purkamisen, vaikka niissä olisi tiedostoja tai hakemistoja juuritasolla.
+
+![S5](slave/5.png)
+
+Ja nyt kun ajetaan vielä uudestaan, pitäisi olla onnistunut lopputulos lataamisen ja purkamisen osalta.
+
+![S6](slave/6.png)
+
+
 
 ## b) Etusivu
 
