@@ -303,16 +303,24 @@ Pyörittelin vielä tämän osuuden muutamaan kertaan, että homma toimii varmas
 **Tehtävän lopetusaika 1.5.2025 kello XX:XX. Aktiivista työskentelyä yhteensä noin X tuntia XX minuuttia.**
 
 ## Lähteet
-https://terokarvinen.com/palvelinten-hallinta/
+Karvinen T 2025. h5 Miniprojekti. Luettavissa: https://terokarvinen.com/palvelinten-hallinta/ Luettu 29.4.2025
 
-https://github.com/warmchang/netris
+Warmchang 2023. Netris GitHub. Luettavissa: https://github.com/warmchang/netris Luettu 30.4.2025
 
-https://netris.rocket9labs.com/download/0.1.9/netris_0.1.9_linux_amd64.tar.gz
+Rocket9labs. Netris Download. Luettavissa: https://netris.rocket9labs.com/download/?sort=name&order=desc Luettu 30.4.2025
 
-https://terokarvinen.com/2024/hello-salt-infra-as-code/
+Karvinen T 2023. Infra as Code - Your wishes as a text file. Luettavissa: https://terokarvinen.com/2024/hello-salt-infra-as-code/ Luettu 30.4.2025
 
-https://github.com/nurminenkasper/Palvelinten-Hallinta/blob/main/h2/h2-Soitto-kotiin.md
+Kasper Nurminen GitHub. Luettavissa: https://github.com/nurminenkasper/Palvelinten-Hallinta/blob/main/h2/h2-Soitto-kotiin.md Luettu 30.4.2025
 
-https://docs.saltproject.io/salt/user-guide/en/latest/topics/salt-ssh.html
+Salt Project 2025. Managing systems with Salt SSH. Luettavissa: https://docs.saltproject.io/salt/user-guide/en/latest/topics/salt-ssh.html Luettu 30.4.2025
 
-https://docs.saltproject.io/en/3006/ref/states/all/salt.states.archive.html
+Salt Project 2025. Extract an archive. Luettavissa: https://docs.saltproject.io/en/3006/ref/states/all/salt.states.archive.html Luettu 30.4.2025
+
+Salt Project 2025. Operations on regular files, special files, directories, and symlinks. Luettavissa: https://docs.saltproject.io/en/3006/ref/states/all/salt.states.file.html Luettu 30.4.2025
+
+Salt Project 2025. Starting Or Restarting Of Services And Daemons. Luettavissa: https://docs.saltproject.io/en/3006/ref/states/all/salt.states.service.html Luettu 30.4.2025
+
+Tämän sisällön tuottamisessa on hyödynnetty Gemini 2.5 -kielimallia. Käytettyjä syötteitä on avattu tekstissä.
+
+
