@@ -93,7 +93,7 @@ Homma käyntiin uudestaan onnistuneesti ja avasin toiseen terminaaliin Slave kon
 
 Peli olisi vaatinut vielä toisen yhteydenottajan, testasinkin sitä lopulta ihan oman host koneen CMD kautta, mutta kuva unohtui ottaa väliin sekaan. Master koneen syötteestä nähdään kuitenkin se, että serveri on pystyssä ja pelaaja vagrant liittyi serverin peliin.
 
-![L10](10.png)
+![L10](local/10.png)
 
 Seuraavaksi edessä oli selvitellä, miten homma saataisiin pyöritettyä ympäri niin, että Master ajaa Saltin yli Slavelle serverin pystyyn.
 
